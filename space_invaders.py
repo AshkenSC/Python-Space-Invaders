@@ -8,7 +8,7 @@ from ship import Ship
 def run_game():
     # initiate game and create a screen object
     pygame.init()
-    # create a Settings instance
+    # create a Settings instance and set basic properties
     ai_settings = Settings()
     screen = pygame.display.set_mode(
         (ai_settings.screen_width, ai_settings.screen_height))
@@ -19,15 +19,9 @@ def run_game():
 
     # start main game loop
     while True:
-
         # supervise keyboard and mouse action
         gf.check_events()
-
-        # redraw elements in the screen in every loop
-        screen.fill(ai_settings.bg_color)
-        ship.blitme()
-
-        # refresh to display the latest drawn screen
-        pygame.display.flip()
+        # update display contents in every frame
+        gf.update_screen(ai_settings, screen, ship)
 
 run_game()
