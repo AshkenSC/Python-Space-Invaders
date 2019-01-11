@@ -20,7 +20,9 @@ def run_game():
     # start main game loop
     while True:
         # supervise keyboard and mouse action
-        gf.check_events()
+        gf.check_events(ship)
+        # update ship status
+        ship.update()
         # update display contents in every frame
         gf.update_screen(ai_settings, screen, ship)
 
