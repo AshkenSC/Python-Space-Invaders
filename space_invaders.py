@@ -15,7 +15,7 @@ def run_game():
     pygame.display.set_caption('Space Invaders')
 
     # create a player ship
-    ship = Ship(screen)
+    ship = Ship(ai_settings, screen)
 
     # start main game loop
     while True:
