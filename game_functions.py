@@ -6,8 +6,9 @@ def check_keydown_events(event, si_settings, screen, ship, bullets):
     '''react to key DOWN events'''
     if event.key == pygame.K_SPACE:
         # create a bullt and add it to 'bullets'
-        new_bullet = Bullet(si_settings, screen, ship)
-        bullets.add(new_bullet)
+        if len(bullets) < si_settings.bullets_allowed:
+            new_bullet = Bullet(si_settings, screen, ship)
+            bullets.add(new_bullet)
     if event.key == pygame.K_RIGHT:
         # move right
         ship.moving_right = True
