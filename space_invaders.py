@@ -27,6 +27,13 @@ def run_game():
         # update objects' status
         ship.update()
         bullets.update()
+
+        # delete vanished bullets
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+        print(len(bullets))     # inspect bullet number
+
         # update display contents in every frame
         gf.update_screen(si_settings, screen, ship, bullets)
 
