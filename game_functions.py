@@ -48,4 +48,15 @@ def update_screen(si_settings, screen, ship, bullets):
     # refresh to display the latest drawn screen
     pygame.display.flip()
 
+def update_bullets(bullets):
+    '''update bullets' location and delete vanished bullets'''
+    # update bullets' location
+    bullets.update()
+
+    # delete vanished bullets
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
+
+    print(len(bullets)) # inspect bullets' number
 
