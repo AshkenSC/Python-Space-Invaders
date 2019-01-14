@@ -10,3 +10,9 @@ class Settings():
 
         # player ship settings
         self.ship_speed_factor = 2.0
+
+        # bullet settings
+        self.bullet_speed_factor = 1.0
+        self.bullet_width = 3
+        self.bullet_height = 15
+        self.bullet_color = 60, 60, 60
