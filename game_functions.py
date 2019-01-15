@@ -4,11 +4,11 @@ from bullet import Bullet
 
 def check_keydown_events(event, si_settings, screen, ship, bullets):
     '''react to key DOWN events'''
+    if event.key == pygame.K_q:
+        sys.exit()
     if event.key == pygame.K_SPACE:
         # create a bullt and add it to 'bullets'
-        if len(bullets) < si_settings.bullets_allowed:
-            new_bullet = Bullet(si_settings, screen, ship)
-            bullets.add(new_bullet)
+        fire_bullet(si_settings, screen, ship, bullets)
     if event.key == pygame.K_RIGHT:
         # move right
         ship.moving_right = True
@@ -59,4 +59,9 @@ def update_bullets(bullets):
             bullets.remove(bullet)
 
     print(len(bullets)) # inspect bullets' number
+
+def fire_bullet(si_settings, screen, ship, bullets):
+    if len(bullets) < si_settings.bullets_allowed:
+        new_bullet = Bullet(si_settings, screen, ship)
+        bullets.add(new_bullet)
 
