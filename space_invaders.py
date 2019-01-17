@@ -8,7 +8,7 @@ from ship import Ship
 from alien import Alien
 
 def run_game():
-    # initiate game and create a screen object
+    '''initiate game and create a screen object'''
     pygame.init()
     # create a Settings instance and set basic properties
     si_settings = Settings()
@@ -16,6 +16,7 @@ def run_game():
         (si_settings.screen_width, si_settings.screen_height))
     pygame.display.set_caption('Space Invaders')
 
+    '''create game object instances'''
     # create a player ship
     ship = Ship(si_settings, screen)
     # create a group to store bullets
@@ -23,7 +24,7 @@ def run_game():
     # create an alien
     alien = Alien(si_settings, screen)
 
-    # start main game loop
+    '''start main game loop'''
     while True:
         # supervise keyboard and mouse action
         gf.check_events(si_settings, screen, ship, bullets)
