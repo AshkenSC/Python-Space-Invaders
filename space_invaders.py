@@ -5,6 +5,7 @@ import game_functions as gf
 
 from settings import Settings
 from ship import Ship
+from alien import Alien
 
 def run_game():
     # initiate game and create a screen object
@@ -19,6 +20,8 @@ def run_game():
     ship = Ship(si_settings, screen)
     # create a group to store bullets
     bullets = Group()
+    # create an alien
+    alien = Alien(si_settings, screen)
 
     # start main game loop
     while True:
@@ -29,6 +32,6 @@ def run_game():
         gf.update_bullets(bullets)
 
         # update display contents in every frame
-        gf.update_screen(si_settings, screen, ship, bullets)
+        gf.update_screen(si_settings, screen, ship, alien, bullets)
 
 run_game()
