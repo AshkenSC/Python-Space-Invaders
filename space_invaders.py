@@ -21,8 +21,11 @@ def run_game():
     ship = Ship(si_settings, screen)
     # create a group to store bullets
     bullets = Group()
-    # create a set of aliens
+    # create an alien fleet
     aliens = Group()
+
+    # create a group of aliens
+    gf.create_fleet(si_settings, screen, aliens)
 
     '''start main game loop'''
     while True:
