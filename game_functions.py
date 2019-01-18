@@ -69,24 +69,25 @@ def fire_bullet(si_settings, screen, ship, bullets):
 
 def create_fleet(si_settings, screen, aliens):
     '''create a group of aliens'''
-    # create an alien and calculate how many aliens
-    # can one line contain
+    # create an alien and calculate how many aliens can one line contain
     # alien distance == alien width
-
     alien = Alien(si_settings, screen)
-    alien_width = alien.rect.width
-    available_space_x = si_settings.screen_width - 2 * alien_width
-    number_aliens_x = int(available_space_x / (2 * alien_width))
+    number_aliens_x = get_number_aliens_x(si_settings, alien.rect.width)
 
     # create the first line of aliens
     for alien_number in range(number_aliens_x):
-        # create an alien and add it to current line
-        alien = Alien(si_settings, screen)
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        aliens.add(alien)
+        create_alien(si_settings, screen, aliens, alien_number)
 
 def get_number_aliens_x(si_settings, alien_width):
+    '''calculate how many aliens can one line contain'''
+    available_space_x = si_settings.screen_width - 2 * alien_width
+    number_aliens_x = int(available_space_x / (2 * alien_width))
+    return number_aliens_x
 
-     available_space_x = si_settings.screen_width - 2 * alien_width
-     
+def create_alien(si_settings, screen, aliens, alien_number):
+    '''create an alien and put it at current line'''
+    alien = Alien(si_settings, screen)
+    alien_width = alien.rect.width
+    alien.x = alien_width + 2 * alien_width * alien_number
+    alien.rect.x = alien.x
+    aliens.add(alien)
