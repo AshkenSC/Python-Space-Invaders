@@ -36,6 +36,6 @@ def run_game():
         gf.update_bullets(bullets)
 
         # update display contents in every frame
-        gf.update_screen(si_settings, screen, ship, alien, bullets)
+        gf.update_screen(si_settings, screen, ship, aliens, bullets)
 
 run_game()
