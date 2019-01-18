@@ -85,3 +85,8 @@ def create_fleet(si_settings, screen, aliens):
         alien.x = alien_width + 2 * alien_width * alien_number
         alien.rect.x = alien.x
         aliens.add(alien)
+
+def get_number_aliens_x(si_settings, alien_width):
+
+     available_space_x = si_settings.screen_width - 2 * alien_width
+     
