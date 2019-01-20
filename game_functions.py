@@ -76,7 +76,7 @@ def create_fleet(si_settings, screen, ship, aliens):
     number_rows = get_number_rows(si_settings, ship.rect.height, alien.rect.height)
 
     # create the first line of aliens
-    for row_number in range(number_rows)
+    for row_number in range(number_rows):
         for alien_number in range(number_aliens_x):
             create_alien(si_settings, screen, aliens, alien_number, row_number)
 
