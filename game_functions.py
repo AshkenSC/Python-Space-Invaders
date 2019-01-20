@@ -91,3 +91,10 @@ def create_alien(si_settings, screen, aliens, alien_number):
     alien.x = alien_width + 2 * alien_width * alien_number
     alien.rect.x = alien.x
     aliens.add(alien)
+
+def get_number_rows(si_settings, ship_height, alien_height):
+    '''calculate how many alien lines can the screen contain'''
+    available_space_y = (si_settings.screen_hight -
+                         (3 * alien_height) - ship_height)
+    number_rows = int(available_space_y)
+    return number_rows
