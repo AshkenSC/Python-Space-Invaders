@@ -101,6 +101,23 @@ def get_number_rows(si_settings, ship_height, alien_height):
     number_rows = int(available_space_y / (2 * alien_height))
     return number_rows
 
-def update_aliens(aliens):
-    '''update aliens' position'''
+def check_fleet_edges(si_settings, aliens):
+    '''reactions when aliens reach screen border'''
+    for alien in aliens.sprites():
+        if alien.check_edges():
+            change_fleet_direction(si_settings, aliens)
+            break
+
+def change_fleet_direction(si_settings, aliens):
+    '''move alien fleet downwards and change their direction'''
+    for alien in aliens.sprites():
+        alien.rect.y += si_settings.fleet_drop_speed
+    si_settings.fleet_direction *= -1
+
+def update_aliens(si_settings, aliens):
+    '''
+    check if any alien is at screen border
+    and update alien fleet's total location
+    '''
+    check_fleet_edges(si_settings, aliens)
     aliens.update()
