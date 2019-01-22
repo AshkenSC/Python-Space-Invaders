@@ -66,7 +66,7 @@ def update_bullets(aliens, bullets):
     CAUTION: if the booleans are set as 'False, True'
     then the bullet will PENETRATE all the aliens it collides
     '''
-    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+    collisions = pygame.sprite.groupcollide(bullets, aliens, False, True)
 
     print(len(bullets)) # inspect bullets' number
 
