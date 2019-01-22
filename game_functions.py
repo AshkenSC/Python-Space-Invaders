@@ -60,6 +60,11 @@ def update_bullets(si_settings, screen, ship, aliens, bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
 
+    check_bullet_alien_collisions(si_settings, screen, ship, aliens, bullets)
+
+    print(len(bullets)) # bullets' number inspection
+
+def check_bullet_alien_collisions(si_settings, screen, ship, aliens, bullets):
     # check if any bullet hits alien
     # if so, delete the bullet and the alien
     '''
@@ -71,8 +76,6 @@ def update_bullets(si_settings, screen, ship, aliens, bullets):
     if len(aliens) == 0:
         # delete current bullets and create a new FLEET
         create_fleet(si_settings, screen, ship, aliens)
-
-    print(len(bullets)) # inspect bullets' number
 
 def fire_bullet(si_settings, screen, ship, bullets):
     if len(bullets) < si_settings.bullets_allowed:
