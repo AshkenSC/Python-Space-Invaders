@@ -62,8 +62,6 @@ def update_bullets(si_settings, screen, ship, aliens, bullets):
 
     check_bullet_alien_collisions(si_settings, screen, ship, aliens, bullets)
 
-    print(len(bullets)) # bullets' number inspection
-
 def check_bullet_alien_collisions(si_settings, screen, ship, aliens, bullets):
     # check if any bullet hits alien
     # if so, delete the bullet and the alien
@@ -129,10 +127,14 @@ def change_fleet_direction(si_settings, aliens):
         alien.rect.y += si_settings.fleet_drop_speed
     si_settings.fleet_direction *= -1
 
-def update_aliens(si_settings, aliens):
+def update_aliens(si_settings, ship, aliens):
     '''
     check if any alien is at screen border
     and update alien fleet's total location
     '''
     check_fleet_edges(si_settings, aliens)
     aliens.update()
+
+    # check collision between PLAYER and ALIENS
+    if pygame.sprite.spritecollideany(ship, aliens):
+        print("Ship hit!!!")
