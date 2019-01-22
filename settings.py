@@ -10,6 +10,7 @@ class Settings():
 
         # player ship settings
         self.ship_speed_factor = 2.0
+        self.ship_limit = 3
 
         # bullet settings
         self.bullet_speed_factor = 2.5
@@ -20,7 +21,7 @@ class Settings():
 
         # alien settings
         self.alien_speed_factor = 0.3
-        self.fleet_drop_speed = 50
+        self.fleet_drop_speed = 100
         # fleet_direction = 1: move towards right
         # fleet_direction = -1: move towards left
         self.fleet_direction = 1
