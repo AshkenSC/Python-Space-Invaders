@@ -50,7 +50,7 @@ def update_screen(si_settings, screen, ship, aliens, bullets):
     # refresh to display the latest drawn screen
     pygame.display.flip()
 
-def update_bullets(aliens, bullets):
+def update_bullets(si_settings, screen, ship, aliens, bullets):
     '''update bullets' location and delete vanished bullets'''
     # update bullets' location
     bullets.update()
@@ -67,6 +67,10 @@ def update_bullets(aliens, bullets):
     then the bullet will PENETRATE all the aliens it collides
     '''
     collisions = pygame.sprite.groupcollide(bullets, aliens, False, True)
+
+    if len(aliens) == 0:
+        # delete current bullets and create a new FLEET
+        create_fleet(si_settings, screen, ship, aliens)
 
     print(len(bullets)) # inspect bullets' number
 
