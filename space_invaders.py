@@ -35,10 +35,13 @@ def run_game():
     while True:
         # supervise keyboard and mouse action
         gf.check_events(si_settings, screen, ship, bullets)
+
+        if stats.game_active:
         # update objects' status
-        ship.update()
-        gf.update_bullets(si_settings, screen, ship, aliens, bullets)
-        gf.update_aliens(si_settings, stats, screen, ship, aliens, bullets)
+            ship.update()
+            gf.update_bullets(si_settings, screen, ship, aliens, bullets)
+            gf.update_aliens(si_settings, stats, screen, ship, aliens, bullets)
+
         # update display contents in every frame
         gf.update_screen(si_settings, screen, ship, aliens, bullets)
 
