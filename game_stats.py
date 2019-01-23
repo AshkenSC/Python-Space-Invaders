@@ -5,6 +5,8 @@ class GameStats():
         '''initialize stats info'''
         self.si_settings = si_settings
         self.reset_stats()
+        # game is ACTIVE when launched
+        self.game_active = True
 
     def reset_stats(self):
         '''
