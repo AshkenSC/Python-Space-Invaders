@@ -5,8 +5,9 @@ class GameStats():
         '''initialize stats info'''
         self.si_settings = si_settings
         self.reset_stats()
-        # game is ACTIVE when launched
-        self.game_active = True
+
+        # set game to INACTIVE when launched
+        self.game_active = False
 
     def reset_stats(self):
         '''
@@ -14,3 +15,4 @@ class GameStats():
         while game is running
         '''
         self.ships_left = self.si_settings.ship_limit
+        
