@@ -1,4 +1,4 @@
-import pygame.front
+import pygame.font
 
 class Button():
     def __init__(self, si_settings, screen, msg):

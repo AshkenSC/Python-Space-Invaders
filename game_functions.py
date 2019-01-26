@@ -37,7 +37,8 @@ def check_events(si_settings, screen, ship, bullets):
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
 
-def update_screen(si_settings, screen, ship, aliens, bullets, play_button):
+def update_screen(si_settings, screen, stats, ship, aliens, bullets,
+                  play_button):
     '''Update contents on the screen, and switch to new screen'''
 
     # redraw elements in the screen in every loop
