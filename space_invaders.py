@@ -7,6 +7,7 @@ from settings import Settings
 from game_stats import GameStats
 from ship import Ship
 from alien import Alien
+from button import Button
 
 def run_game():
     '''initiate game and create a screen object'''
@@ -16,6 +17,9 @@ def run_game():
     screen = pygame.display.set_mode(
         (si_settings.screen_width, si_settings.screen_height))
     pygame.display.set_caption('Space Invaders')
+
+    # create PLAY button
+    play_button = Button(si_settings, screen, "PLAY")
 
     # create an instance to store game stats
     stats = GameStats(si_settings)
@@ -43,6 +47,6 @@ def run_game():
             gf.update_aliens(si_settings, stats, screen, ship, aliens, bullets)
 
         # update display contents in every frame
-        gf.update_screen(si_settings, screen, ship, aliens, bullets)
+        gf.update_screen(si_settings, screen, ship, aliens, bullets, play_button)
 
 run_game()
