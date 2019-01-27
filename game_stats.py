@@ -15,4 +15,4 @@ class GameStats():
         while game is running
         '''
         self.ships_left = self.si_settings.ship_limit
-        
+        self.score = 0

@@ -68,8 +68,8 @@ def check_play_button(si_settings, screen, stats, play_button, ship, aliens,
             ship.center_ship()
 
 
-def update_screen(si_settings, screen, stats, ship, aliens, bullets,
-                  play_button):
+def update_screen(si_settings, screen, stats, sb, ship, aliens,
+                  bullets, play_button):
     '''Update contents on the screen, and switch to new screen'''
 
     # redraw elements in the screen in every loop
@@ -79,6 +79,9 @@ def update_screen(si_settings, screen, stats, ship, aliens, bullets,
         bullet.draw_bullet()
     ship.blitme()
     aliens.draw(screen)
+
+    # show SCORE
+    sb.show_score()
 
     # if the game is INACTIVE, draw PLAY button
     if not stats.game_active:
