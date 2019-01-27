@@ -44,7 +44,18 @@ def check_events(si_settings, screen, stats, play_button, ship, bullets):
 def check_play_button(stats, play_button, mouse_x, mouse_y):
     '''start new game when player clicks on PLAY button'''
     if play_button.rect.collidepoint(mouse_x, mouse_y):
+        # reset game stats info
+        stats.reset_stats()
         stats.game_active = True
+
+        # clean aliens list and bullets list
+        aliens.empty()
+        bullets.empty()
+
+        # create a new ALIEN fleet and set PLAYER at CENTER
+        create_fleet(si_settings, screen, ship, aliens)
+        ship.center_ship()
+
 
 def update_screen(si_settings, screen, stats, ship, aliens, bullets,
                   play_button):
