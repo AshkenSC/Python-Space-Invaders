@@ -25,7 +25,8 @@ def check_keyup_events(event, ship):
     elif event.key == pygame.K_LEFT:
         ship.moving_left = False
 
-def check_events(si_settings, screen, stats, play_button, ship, bullets):
+def check_events(si_settings, screen, stats, play_button, ship, aliens,
+                 bullets):
     '''react to key press and mouse events'''
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -39,22 +40,26 @@ def check_events(si_settings, screen, stats, play_button, ship, bullets):
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
-            check_play_button(stats, play_button, mouse_x, mouse_y)
+            check_play_button(si_settings, screen, stats, play_button, ship, aliens,
+                              bullets, mouse_x, mouse_y)
 
-def check_play_button(stats, play_button, mouse_x, mouse_y):
+def check_play_button(si_settings, screen, stats, play_button, ship, aliens,
+                      bullets, mouse_x, mouse_y):
     '''start new game when player clicks on PLAY button'''
-    if play_button.rect.collidepoint(mouse_x, mouse_y):
-        # reset game stats info
-        stats.reset_stats()
-        stats.game_active = True
+    button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)
+    if button_clicked and not stats.game_active:
+        if play_button.rect.collidepoint(mouse_x, mouse_y):
+            # reset game stats info
+            stats.reset_stats()
+            stats.game_active = True
 
-        # clean aliens list and bullets list
-        aliens.empty()
-        bullets.empty()
+            # clean aliens list and bullets list
+            aliens.empty()
+            bullets.empty()
 
-        # create a new ALIEN fleet and set PLAYER at CENTER
-        create_fleet(si_settings, screen, ship, aliens)
-        ship.center_ship()
+            # create a new ALIEN fleet and set PLAYER at CENTER
+            create_fleet(si_settings, screen, ship, aliens)
+            ship.center_ship()
 
 
 def update_screen(si_settings, screen, stats, ship, aliens, bullets,
