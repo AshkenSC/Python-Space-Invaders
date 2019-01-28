@@ -53,4 +53,5 @@ def run_game():
         gf.update_screen(si_settings, screen, stats, sb, ship, aliens,
                          bullets, play_button)
 
+
 run_game()
