@@ -90,7 +90,7 @@ def update_screen(si_settings, screen, stats, sb, ship, aliens,
     # refresh to display the latest drawn screen
     pygame.display.flip()
 
-def update_bullets(si_settings, screen, ship, aliens, bullets):
+def update_bullets(si_settings, screen, stats, sb, ship, aliens, bullets):
     '''update bullets' location and delete vanished bullets'''
     # update bullets' location
     bullets.update()
@@ -100,7 +100,8 @@ def update_bullets(si_settings, screen, ship, aliens, bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
 
-    check_bullet_alien_collisions(si_settings, screen, ship, aliens, bullets)
+    check_bullet_alien_collisions(si_settings, screen, stats, sb, ship,
+                                  aliens, bullets)
 
 def check_bullet_alien_collisions(si_settings, screen, stats, sb, ship,
                                   aliens, bullets):
