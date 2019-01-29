@@ -9,6 +9,9 @@ class GameStats():
         # set game to INACTIVE when launched
         self.game_active = False
 
+        # do NOT reset highscore in ANY case!
+        self.high_score = 0
+
     def reset_stats(self):
         '''
         initialize possible changing stats info
