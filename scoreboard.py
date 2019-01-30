@@ -40,6 +40,8 @@ class Scoreboard():
         self.screen.blit(self.score_image, self.score_rect)
         self.screen.blit(self.high_score_image, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
+        # draw ships
+        self.ships.draw(self.screen)
 
     def prep_high_score(self):
         '''transform high score DATA into a rendered IMAGE'''

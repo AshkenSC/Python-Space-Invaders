@@ -47,7 +47,7 @@ def run_game():
         # update objects' status
             ship.update()
             gf.update_bullets(si_settings, screen, stats, sb, ship, aliens, bullets)
-            gf.update_aliens(si_settings, stats, screen, ship, aliens, bullets)
+            gf.update_aliens(si_settings, screen, stats, sb, ship, aliens, bullets)
 
         # update display contents in every frame
         gf.update_screen(si_settings, screen, stats, sb, ship, aliens,
