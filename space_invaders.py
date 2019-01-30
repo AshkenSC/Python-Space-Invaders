@@ -40,7 +40,7 @@ def run_game():
     '''start main game loop'''
     while True:
         # supervise keyboard and mouse action
-        gf.check_events(si_settings, screen, stats, play_button, ship,
+        gf.check_events(si_settings, screen, stats, sb, play_button, ship,
                         aliens, bullets)
 
         if stats.game_active:
